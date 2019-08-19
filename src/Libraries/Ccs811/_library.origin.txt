@@ -1,0 +1,1 @@
+https://github.com/sparkfun/SparkFun_CCS811_Arduino_Library/commit/769f2d9fd66528c26a406ea9bc1f94f163ad74bf
