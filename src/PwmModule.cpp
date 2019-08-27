@@ -1,5 +1,4 @@
 #include "PwmModule.h"
-#include "../../Conti/src/Conti.h"
 
 PwmModule::PwmModule(Conti &device, TwoWire&wire, uint8_t i2cAddress, float pwmFrequency)
 	:_device(device), _pca9685(wire, i2cAddress)
