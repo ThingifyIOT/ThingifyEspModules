@@ -208,7 +208,7 @@ void LedMatrix::drawText()
 			position = i * myCharWidth + col + myTextOffset + myTextAlignmentOffset;
 			if (position >= 0 && position < myNumberOfDevices * 8)
 			{
-				setColumn(position, pgm_read_byte (&cp437_font [letter] [col]));
+				setColumn(position, pgm_read_byte (&cp437_font [(byte)letter] [col]));
 			}
 		}
 	}
