@@ -10,11 +10,11 @@
 
 class Hdc1080Module : public IModule
 {
-	uint8_t _i2cAddress;
-	ClosedCube_HDC1080 _hdc;
-	Conti& _thing;
-	TwoWire& _wire;
 	ContiLogger& _logger;
+	uint8_t _i2cAddress;
+	Conti& _thing;
+	ClosedCube_HDC1080 _hdc;
+	TwoWire& _wire;
 	bool _isSensorPresent;
 	Node* _temperatureNode;
 	Node* _humidityNode;

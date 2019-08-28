@@ -12,7 +12,6 @@ class LedMatrixUi: public IModule
 	int n2 = 0;
 
 	/* number of displays, cs pin*/
-	LedMatrix ledMatrix;
 	struct point_t
 	{
 		int x;
@@ -20,6 +19,7 @@ class LedMatrixUi: public IModule
 	};
 	point_t *_spiralPoints;
 	Conti& _thing;
+	LedMatrix ledMatrix;
 	Node *_textNode;
 public:
 	LedMatrixUi(Conti& thing, uint8_t txPin);

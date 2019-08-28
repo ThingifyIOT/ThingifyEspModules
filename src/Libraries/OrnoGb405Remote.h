@@ -5,7 +5,7 @@ class OrnoGb405Remote
 {
 	void TrDataBlock(const char *data);
 	void TrDigit(int digit);
-	void TransmitCommandSegment(char *code, int switchNumber, char *command);
+	void TransmitCommandSegment(char *code, int switchNumber, const char *command);
 	void TrLow();
 	void TrHigh();
 	int _txPin;

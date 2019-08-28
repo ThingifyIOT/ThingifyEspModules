@@ -14,11 +14,11 @@ class Sds011Module : public IModule
 	Conti& _thing;
 	Node* _pm25Node;
 	Node* _pm10Node;
-	SDS011 _sds011;
+	SDS011 _sds011;	
+	ContiLogger& _logger;
 	HardwareSerial& _serial;
 	uint8_t _rxPin;
 	uint8_t _txPin;
-	ContiLogger& _logger;
 public:
 	Sds011Module(Conti& thing, HardwareSerial& serial, uint8_t rxPin, uint8_t txPin);
 	const char* GetName() override;

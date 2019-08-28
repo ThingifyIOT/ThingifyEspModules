@@ -60,7 +60,7 @@ void OrnoGb405Remote::Set(int ouputNumber, bool value)
 	}
 }
 
-void OrnoGb405Remote::TransmitCommandSegment(char *code, int switchNumber, char *command)
+void OrnoGb405Remote::TransmitCommandSegment(char *code, int switchNumber, const char *command)
 {
 	char switchId[10];	
 	strcpy_P(switchId,PSTR("101010101"));

@@ -26,7 +26,6 @@ void ClapSensor::Handleinterrupt()
 		readings.clear();
 	}
 	readings.push_back(ms);
-	int state = digitalRead(_microphonePin);
 	//Serial.printf(" ## Interrupt change %d, %d\n", state, ms);
 }
 

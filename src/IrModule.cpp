@@ -43,14 +43,13 @@ bool IrModule::Init()
 
 bool IrModule::OnValueChanged(Node *node)
 {
-	switch (node->Value.AsBool())
+	if (node->Value.AsBool())
 	{
-	case false:
-		_irSender.sendNEC(0xFF807F, 32);
-		break;
-	case true:
 		_irSender.sendNEC(0xFF00FF, 32);
-		break;
+	}
+	else
+	{
+		_irSender.sendNEC(0xFF807F, 32);
 	}	
 	return true;
 }

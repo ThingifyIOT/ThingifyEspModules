@@ -46,8 +46,7 @@ void theaterChaseRainbow(Adafruit_NeoPixel* np, uint8_t wait)
 {
 	static int j = 0;
 	static int q = 0;
-	static bool state = false;
-
+	
 	static uint64_t ms = 0;
 	if ((millis()-ms) < wait)
 	{
