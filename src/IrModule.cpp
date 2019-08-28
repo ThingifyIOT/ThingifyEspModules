@@ -57,7 +57,7 @@ bool IrModule::OnValueChanged(Node *node)
 NodeValue IrModule::OnFunctionExecuted(void* context, FunctionArguments& args)
 {
 	unsigned int  onSignal[23] = {450, 1250,450, 350,1300, 1250,450, 1250,450, 400,1250, 450,1250, 400,1300, 400,1250, 450,1250, 1300,400, 400 };  // UNKNOWN 143226DB
-	unsigned int  offSignal[23] = { 1300,400, 1300,400, 450,1250, 1250,400, 1300,400, 450,1250, 450,1250, 400,1300, 400,1300, 400,1250, 450,1250, 1250 };  // UNKNOWN A32AB931
+	//unsigned int  offSignal[23] = { 1300,400, 1300,400, 450,1250, 1250,400, 1300,400, 450,1250, 450,1250, 400,1300, 400,1300, 400,1250, 450,1250, 1250 };  // UNKNOWN A32AB931
 	Serial.println("Fan on");
 
 	_irSender.sendRaw(onSignal, sizeof(onSignal) / sizeof(onSignal[0]), 38); //Note the approach used to automatically calculate the size of the array.

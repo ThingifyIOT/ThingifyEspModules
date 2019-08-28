@@ -9,13 +9,13 @@
 
 
 class Bme280Module : public IModule
-{
+{	
+	ContiLogger& _logger;
+	Conti& _thing;
 	uint8_t _bmeAddress;
 	BME280I2C::Settings _bmeSettings;
 	BME280I2C _bme;
-	Conti& _thing;
 	TwoWire& _wire;
-	ContiLogger& _logger;
 	bool _isSensorPresent;
 	Node* _temperatureNode;
 	Node* _pressureNode;

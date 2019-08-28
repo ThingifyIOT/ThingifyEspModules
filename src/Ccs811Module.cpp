@@ -4,8 +4,8 @@
 
 Ccs811Module::Ccs811Module(Conti &thing, TwoWire &wire, uint8_t i2cAddress) :
 	_i2cAddress(i2cAddress),
-	_thing(thing),
 	_ccs811(i2cAddress),
+	_thing(thing),
 	_wire(wire),
 	_logger(ContiLoggerInstance),
 	_isSensorPresent(false)

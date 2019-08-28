@@ -5,8 +5,8 @@ DisplayModule::DisplayModule(Conti &thing, int ssd1306Address, int sdaPin, int s
 display(ssd1306Address, sdaPin, sclPin),
 _scl_pin(sclPin),
 _sda_pin(sdaPin),
-_ssd1306_address(ssd1306Address),
 _thing(thing),
+_ssd1306_address(ssd1306Address),
 _display_timer(1000),
 _isInverted(isInverted)
 {
