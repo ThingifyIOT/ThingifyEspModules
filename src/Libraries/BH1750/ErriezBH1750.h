@@ -64,9 +64,9 @@ private:
 	bool writeInstruction(uint8_t instruction);
     void setTimestamp();
     unsigned long _completionTimestamp;
-    uint8_t _i2cAddr;
     uint8_t _mode;
 	TwoWire& _wire;
+    uint8_t _i2cAddr;
 };
 
 #endif // ERRIEZ_BH1750_H__
