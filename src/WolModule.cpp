@@ -1,7 +1,7 @@
 #include "WolModule.h"
 #include <FixedString.h>
 
-WolModule::WolModule(Conti &device, const char* macAddress)
+WolModule::WolModule(Thingify &device, const char* macAddress)
 	:_device(device), _macAddress(macAddress)
 {
 }

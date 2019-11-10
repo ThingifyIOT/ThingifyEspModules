@@ -1,7 +1,7 @@
 #pragma once
 
 #include <IModule.h>
-#include <Conti.h>
+#include <Thingify.h>
 #include "Libraries/SSD1306/SSD1306.h"
 
 
@@ -10,12 +10,12 @@ class DisplayModule : public IModule
 	SSD1306 display;
 	int _scl_pin;
 	int _sda_pin;
-	Conti& _thing;
+	Thingify& _thing;
 	int _ssd1306_address;
 	SoftTimer _display_timer;
 	bool _isInverted;
 public:
-	DisplayModule(Conti &thing, int ssd1306Address, int sdaPin, int sclPin, bool isInverted = false);
+	DisplayModule(Thingify &thing, int ssd1306Address, int sdaPin, int sclPin, bool isInverted = false);
 	void OnStateChanged(ThingState state);
 	bool Init() override;
 	bool Tick() override;

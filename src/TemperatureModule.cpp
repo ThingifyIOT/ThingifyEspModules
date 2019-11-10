@@ -4,7 +4,7 @@
 #include <map>
 #include <set>
 
-TemperatureModule::TemperatureModule(int pin, Conti* device)
+TemperatureModule::TemperatureModule(int pin, Thingify* device)
 {
 	_pin = pin;
 	_device = device;
@@ -69,7 +69,7 @@ bool TemperatureModule::Tick()
 		auto existingNode = FindNodeByName(sensorIdStr);
 		if (existingNode == nullptr)
 		{
-			existingNode = _device->AddFloat(sensorIdStr, ContiUnit::Celsius);
+			existingNode = _device->AddFloat(sensorIdStr, ThingifyUnit::Celsius);
 			_nodes.push_back(existingNode);
 			Serial.printf("Found new temperature sensor %s\n", sensorIdStr);
 		}

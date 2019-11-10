@@ -3,7 +3,7 @@
 
 #include "IModule.h"
 #include "Libraries/FastLED/FastLED.h"
-#include <Conti.h>
+#include <Thingify.h>
 
 
 typedef void(*PatternFunc)(CRGB*leds, int count, int gHue);
@@ -13,7 +13,7 @@ extern PatternFunc gPatterns[];
 template<unsigned int TLedCount>
 class FastLedModule : public IModule
 {
-	Conti& _thing;
+	Thingify& _thing;
 	CRGB leds[TLedCount];
 	int _speed;
 	int _brightness;
@@ -23,7 +23,7 @@ class FastLedModule : public IModule
 	SoftTimer _stUpdateLed;
 
 public:
-	FastLedModule(Conti& thing):_thing(thing), _stUpdateLed(30)
+	FastLedModule(Thingify& thing):_thing(thing), _stUpdateLed(30)
 	{
 		FastLED.addLeds<WS2812, 15, GRB>(leds, TLedCount);
 	}

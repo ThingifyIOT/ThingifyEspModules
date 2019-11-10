@@ -2,7 +2,7 @@
 #include <ContiUtils.h>
 #include <Value/NodeValue.h>
 
-Hdc1080Module::Hdc1080Module(Conti &thing, TwoWire &wire, uint8_t i2cAddress) :
+Hdc1080Module::Hdc1080Module(Thingify &thing, TwoWire &wire, uint8_t i2cAddress) :
 	_logger(ContiLoggerInstance),
 	_i2cAddress(i2cAddress),
 	_thing(thing),	
@@ -19,8 +19,8 @@ const char * Hdc1080Module::GetName()
 
 bool Hdc1080Module::Init()
 {
-	_temperatureNode = _thing.AddFloat("hdc1080.temperature", ContiUnit::Celsius);
-	_humidityNode = _thing.AddRange("hdc1080.humidity", 0, 100, 1, ContiUnit::Percent);
+	_temperatureNode = _thing.AddFloat("hdc1080.temperature", ThingifyUnit::Celsius);
+	_humidityNode = _thing.AddRange("hdc1080.humidity", 0, 100, 1, ThingifyUnit::Percent);
 
 	_temperatureNode->SetValue(NodeValue::NullFloat());
 	_humidityNode->SetValue(NodeValue::NullInt());

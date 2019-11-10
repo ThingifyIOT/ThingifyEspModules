@@ -1,7 +1,7 @@
 #include "LedMatrixUi.h"
 #include <ContiUtils.h>
 
-LedMatrixUi::LedMatrixUi(Conti& thing, uint8_t txPin): 
+LedMatrixUi::LedMatrixUi(Thingify& thing, uint8_t txPin): 
 	_thing(thing), 
 	ledMatrix(DeviceCount, txPin)
 {

@@ -6,7 +6,7 @@
 #include <WiFi.h>
 #endif
 
-DebugNodesModule::DebugNodesModule(Conti& dev): 
+DebugNodesModule::DebugNodesModule(Thingify& dev): 
 _dev(dev)
 {
 	ShowFreeHeap = true;
@@ -60,11 +60,11 @@ bool DebugNodesModule::Init()
 	}
 	if (ShowSignalStrength)
 	{
-		signalStrengthNode = _dev.AddRange("signal_strength", 0, 100, 1, ContiUnit::Percent)->SetKind(NodeKind::Statistics);
+		signalStrengthNode = _dev.AddRange("signal_strength", 0, 100, 1, ThingifyUnit::Percent)->SetKind(NodeKind::Statistics);
 	}
 	if (ShowFreeHeap)
 	{
-		freeHeapNode = _dev.AddInt("free_heap", ContiUnit::Byte)->SetKind(NodeKind::Statistics);
+		freeHeapNode = _dev.AddInt("free_heap", ThingifyUnit::Byte)->SetKind(NodeKind::Statistics);
 	}
 	if (ShowUptime)
 	{
@@ -93,11 +93,11 @@ bool DebugNodesModule::Init()
 #if ESP8266
 	if (ShowFreeStack)
 	{
-		_dev.AddInt("free_stack", ContiUnit::Byte)->SetKind(NodeKind::Statistics);
+		_dev.AddInt("free_stack", ThingifyUnit::Byte)->SetKind(NodeKind::Statistics);
 	}
 	if (ShowStackFragmentation)
 	{
-		_dev.AddInt("heap_frag", ContiUnit::Percent)->SetKind(NodeKind::Statistics);
+		_dev.AddInt("heap_frag", ThingifyUnit::Percent)->SetKind(NodeKind::Statistics);
 	}
 #endif // ESP8266	
 	return true;

@@ -1,6 +1,6 @@
 #include "IrModule.h"
 
-IrModule::IrModule(Conti& thing, int irTxPin)
+IrModule::IrModule(Thingify& thing, int irTxPin)
 	:_thing(thing), _irTxPin(irTxPin), _irSender(irTxPin)
 {
 }

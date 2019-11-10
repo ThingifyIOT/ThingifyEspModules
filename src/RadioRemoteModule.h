@@ -3,7 +3,7 @@
 #include <map>
 
 #include <Arduino.h>
-#include <Conti.h>
+#include <Thingify.h>
 #include "Libraries/OrnoGb405Remote.h"
 #include "Libraries/OrnoSmartLivingRemote.h"
 #include "Libraries/OrnoGb417PbRemote.h"
@@ -28,12 +28,12 @@ class RadioRemoteModule : public IModule
 	OrnoSmartLivingRemote _ornoSmartLvingRemote;
 	OrnoGb417PbRemote _orgnoGb417;
 	bool OnValueChanged(Node *node) override;
-	Conti& _thing;
+	Thingify& _thing;
 	int _txPin;
 public:
 	Node* AddRadioSwitch(const char* name, RadioRemoteType remoteType, int switchNumber);
 
-	RadioRemoteModule(int txPin, Conti& device);
+	RadioRemoteModule(int txPin, Thingify& device);
 	const char* GetName() override;
 	bool Init() override;
 	bool Tick() override;

@@ -1,6 +1,6 @@
 #include "PwmModule.h"
 
-PwmModule::PwmModule(Conti &device, TwoWire&wire, uint8_t i2cAddress, float pwmFrequency)
+PwmModule::PwmModule(Thingify &device, TwoWire&wire, uint8_t i2cAddress, float pwmFrequency)
 	:_device(device), _pca9685(wire, i2cAddress)
 {
 	_pwmFrequency = pwmFrequency;
@@ -78,7 +78,7 @@ bool PwmModule::OnValueChanged(Node *node)
 
 Node* PwmModule::AddPwmOutput(const char *name, int outputNumber)
 {
-	const auto node = _device.AddRange(name, 0, 100, 1, ContiUnit::Percent);
+	const auto node = _device.AddRange(name, 0, 100, 1, ThingifyUnit::Percent);
 	node->OnChanged(this, ValueChangedHandler);
 	_nodeToOutputNumberMap[node->integerId()] = outputNumber;
 	return node;

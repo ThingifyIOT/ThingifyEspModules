@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Libraries\Adafruit_PWMServoDriver.h"
-#include <Conti.h>
+#include <Thingify.h>
 #include <IModule.h>
 #include <map>
 #include <Wire.h>
@@ -9,7 +9,7 @@
 class PwmModule: public IModule
 {
 private:
-	Conti &_device;
+	Thingify &_device;
 	std::map<uint16_t, int> _nodeToOutputNumberMap;
 	static const int PwmOutputCount = 16;
 	uint16_t _requestedPwmValues[PwmOutputCount];
@@ -23,7 +23,7 @@ public:
 
 	Adafruit_PWMServoDriver _pca9685;
 
-	PwmModule(Conti &device, TwoWire& wire, uint8_t i2cAddress = 0x40, float pwmFrequency = 10000);
+	PwmModule(Thingify &device, TwoWire& wire, uint8_t i2cAddress = 0x40, float pwmFrequency = 10000);
 	bool OnValueChanged(Node *node) override;
 	Node* AddPwmOutput(const char *name, int outputNumber);
 	Node* AddOnOffOutput(const char *name, int outputNumber);

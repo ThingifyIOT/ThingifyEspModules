@@ -18,11 +18,11 @@ class LedMatrixUi: public IModule
 		int y;
 	};
 	point_t *_spiralPoints;
-	Conti& _thing;
+	Thingify& _thing;
 	LedMatrix ledMatrix;
 	Node *_textNode;
 public:
-	LedMatrixUi(Conti& thing, uint8_t txPin);
+	LedMatrixUi(Thingify& thing, uint8_t txPin);
 	float temperature;
 	const char* GetName() override;
 	bool Init() override;

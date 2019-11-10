@@ -1,6 +1,6 @@
 #include "HumidityModule.h"
 
-HumidityModule::HumidityModule(Conti* thing, uint8_t pin): 
+HumidityModule::HumidityModule(Thingify* thing, uint8_t pin): 
 _thing(thing), 
 _pin(pin)
 {
@@ -16,8 +16,8 @@ bool HumidityModule::Init()
 	_dht = new DHT(_pin, DHT11, 15);
 	_dht->begin();
 	
-	temperatureNode = _thing->AddFloat("dht.temperature", ContiUnit::Celsius);
-	humidityNode = _thing->AddRange("dht.humidity", 0, 100, 1, ContiUnit::Percent);
+	temperatureNode = _thing->AddFloat("dht.temperature", ThingifyUnit::Celsius);
+	humidityNode = _thing->AddRange("dht.humidity", 0, 100, 1, ThingifyUnit::Percent);
 	return true;
 }
 

@@ -2,7 +2,7 @@
 #include <ContiUtils.h>
 #include <Value/NodeValue.h>
 
-Sds011Module::Sds011Module(Conti& thing, HardwareSerial& serial, uint8_t rxPin, uint8_t txPin) :
+Sds011Module::Sds011Module(Thingify& thing, HardwareSerial& serial, uint8_t rxPin, uint8_t txPin) :
 	_thing(thing),
 	_logger(ContiLoggerInstance),
 	_serial(serial),
@@ -23,8 +23,8 @@ bool Sds011Module::Init()
 #endif
 	_sds011.setup(&_serial);
 
-	_pm25Node = _thing.AddFloat("PM25", ContiUnit::UgPerM3);
-	_pm10Node = _thing.AddFloat("PM10", ContiUnit::UgPerM3);
+	_pm25Node = _thing.AddFloat("PM25", ThingifyUnit::UgPerM3);
+	_pm10Node = _thing.AddFloat("PM10", ThingifyUnit::UgPerM3);
 
 	_sds011.onData([&](float pm25Value, float pm10Value)
 	{

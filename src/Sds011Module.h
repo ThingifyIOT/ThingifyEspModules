@@ -1,7 +1,7 @@
 #ifndef _SDS011_MODULE_H
 #define _SDS011_MODULE_H
 
-#include <Conti.h>
+#include <Thingify.h>
 #include <IModule.h>
 #include "Libraries/Sds011/SDS011.h"
 #include <Wire.h>
@@ -11,7 +11,7 @@
 
 class Sds011Module : public IModule
 {
-	Conti& _thing;
+	Thingify& _thing;
 	Node* _pm25Node;
 	Node* _pm10Node;
 	SDS011 _sds011;	
@@ -20,7 +20,7 @@ class Sds011Module : public IModule
 	uint8_t _rxPin;
 	uint8_t _txPin;
 public:
-	Sds011Module(Conti& thing, HardwareSerial& serial, uint8_t rxPin, uint8_t txPin);
+	Sds011Module(Thingify& thing, HardwareSerial& serial, uint8_t rxPin, uint8_t txPin);
 	const char* GetName() override;
 	bool Init() override;
 	bool Tick() override;

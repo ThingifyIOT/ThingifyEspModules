@@ -1,7 +1,7 @@
 #include "DisplayModule.h"
 #include <Wire.h>
 
-DisplayModule::DisplayModule(Conti &thing, int ssd1306Address, int sdaPin, int sclPin, bool isInverted) :
+DisplayModule::DisplayModule(Thingify &thing, int ssd1306Address, int sdaPin, int sclPin, bool isInverted) :
 display(ssd1306Address, sdaPin, sclPin),
 _scl_pin(sclPin),
 _sda_pin(sdaPin),

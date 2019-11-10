@@ -2,7 +2,7 @@
 #include <ContiUtils.h>
 #include <Value/NodeValue.h>
 
-Ccs811Module::Ccs811Module(Conti &thing, TwoWire &wire, uint8_t i2cAddress) :
+Ccs811Module::Ccs811Module(Thingify &thing, TwoWire &wire, uint8_t i2cAddress) :
 	_i2cAddress(i2cAddress),
 	_ccs811(i2cAddress),
 	_thing(thing),
@@ -19,8 +19,8 @@ const char * Ccs811Module::GetName()
 
 bool Ccs811Module::Init()
 {
-	_co2PpmNode = _thing.AddInt("ccs811.co2", ContiUnit::Ppm);
-	_vocPpbNode = _thing.AddInt("ccs811.voc", ContiUnit::Ppb);
+	_co2PpmNode = _thing.AddInt("ccs811.co2", ThingifyUnit::Ppm);
+	_vocPpbNode = _thing.AddInt("ccs811.voc", ThingifyUnit::Ppb);
 
 	_co2PpmNode->SetValue(NodeValue::NullInt());
 	_vocPpbNode->SetValue(NodeValue::NullInt());

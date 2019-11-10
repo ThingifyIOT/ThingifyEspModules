@@ -1,13 +1,13 @@
 #ifndef  _IR_MODULE_H
 #define _IR_MODULE_H
 
-#include <Conti.h>
+#include <Thingify.h>
 #include "IModule.h"
 #include "Libraries/IrRemote/IrRemote.h"
 
 class IrModule: public IModule
 {
-	Conti& _thing;
+	Thingify& _thing;
 	int _irTxPin;
 	IRsend _irSender;
 	Node* fanOnNode;
@@ -18,7 +18,7 @@ public:
 	bool Init() override;
 	NodeValue OnFunctionExecuted(void* context, FunctionArguments& args) override;
 	bool OnValueChanged(Node *node) override;
-	IrModule(Conti &thing, int irTxPin);
+	IrModule(Thingify &thing, int irTxPin);
 };
 
 #endif // ! _IR_MODULE_H

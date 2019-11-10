@@ -1,6 +1,6 @@
 #include "NeoPixelModule.h"
 
-NeoPixelModule::NeoPixelModule(Conti &device, uint8_t pin)
+NeoPixelModule::NeoPixelModule(Thingify &device, uint8_t pin)
 	:_device(device), _pin(pin)
 {
 }

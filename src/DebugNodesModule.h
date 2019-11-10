@@ -1,6 +1,6 @@
 #pragma once
 
-#include <Conti.h>
+#include <Thingify.h>
 #include <IModule.h>
 #include <ContiUtils.h>
 
@@ -19,10 +19,10 @@ class DebugNodesModule: public IModule
 		*connectionDurationNode,
 		*restartReasonNode;
 
-	Conti& _dev;
+	Thingify& _dev;
 	int DbmToPercent(int dBm);
 public:
-	DebugNodesModule(Conti& dev);
+	DebugNodesModule(Thingify& dev);
 
 	bool ShowFreeHeap;
 	bool ShowIp;

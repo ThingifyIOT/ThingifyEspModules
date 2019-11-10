@@ -2,7 +2,7 @@
 #include <ContiUtils.h>
 #include <Value/NodeValue.h>
 
-Bme280Module::Bme280Module(Conti &thing, TwoWire &wire, uint8_t bmeAddress):
+Bme280Module::Bme280Module(Thingify &thing, TwoWire &wire, uint8_t bmeAddress):
 	_logger(ContiLoggerInstance),
 	_thing(thing),
 	_bmeAddress(bmeAddress),
@@ -22,9 +22,9 @@ const char * Bme280Module::GetName()
 
 bool Bme280Module::Init()
 {	
-	_temperatureNode = _thing.AddFloat("bme.temperature", ContiUnit::Celsius);
-	_humidityNode = _thing.AddRange("bme.humidity",0,100,1, ContiUnit::Percent);
-	_pressureNode = _thing.AddFloat("bme.pressure", ContiUnit::Hectopascal);
+	_temperatureNode = _thing.AddFloat("bme.temperature", ThingifyUnit::Celsius);
+	_humidityNode = _thing.AddRange("bme.humidity",0,100,1, ThingifyUnit::Percent);
+	_pressureNode = _thing.AddFloat("bme.pressure", ThingifyUnit::Hectopascal);
 
 	_temperatureNode->SetValue(NodeValue::NullFloat());
 	_humidityNode->SetValue(NodeValue::NullInt());

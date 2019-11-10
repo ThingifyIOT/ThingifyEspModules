@@ -2,7 +2,7 @@
 #include <ContiUtils.h>
 #include <Value/NodeValue.h>
 
-Bh1750Module::Bh1750Module(Conti & thing, TwoWire &wire, uint8_t i2cAddress) :
+Bh1750Module::Bh1750Module(Thingify & thing, TwoWire &wire, uint8_t i2cAddress) :
 	_logger(ContiLoggerInstance),
 	_i2cAddress(i2cAddress),
 	_bh1750(wire, i2cAddress),
@@ -20,7 +20,7 @@ const char* Bh1750Module::GetName()
 
 bool Bh1750Module::Init()
 {
-	_lightNode = _thing.AddRange("bh1750.light", 0, 4000, 1, ContiUnit::Lx);
+	_lightNode = _thing.AddRange("bh1750.light", 0, 4000, 1, ThingifyUnit::Lx);
 	return true;
 }
 

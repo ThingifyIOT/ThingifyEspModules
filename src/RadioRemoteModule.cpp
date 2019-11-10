@@ -12,7 +12,7 @@ Node* RadioRemoteModule::AddRadioSwitch(const char* name, RadioRemoteType remote
 	return node;
 }
 
-RadioRemoteModule::RadioRemoteModule(int txPin, Conti &thing)	:
+RadioRemoteModule::RadioRemoteModule(int txPin, Thingify &thing)	:
 _ornoRemote(txPin), 
 _ornoSmartLvingRemote(txPin), 
 _orgnoGb417(txPin),
