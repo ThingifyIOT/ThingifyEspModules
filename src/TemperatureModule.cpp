@@ -4,10 +4,9 @@
 #include <map>
 #include <set>
 
-TemperatureModule::TemperatureModule(int pin, Thingify* device)
+TemperatureModule::TemperatureModule(Thingify& thing, int pin) : 
+ _thing(thing), _pin(pin), _logger(ContiLoggerInstance)
 {
-	_pin = pin;
-	_device = device;
 }
 bool TemperatureModule::Init()
 {
@@ -69,9 +68,9 @@ bool TemperatureModule::Tick()
 		auto existingNode = FindNodeByName(sensorIdStr);
 		if (existingNode == nullptr)
 		{
-			existingNode = _device->AddFloat(sensorIdStr, ThingifyUnit::Celsius);
+			existingNode = _thing.AddFloat(sensorIdStr, ThingifyUnit::Celsius);
 			_nodes.push_back(existingNode);
-			Serial.printf("Found new temperature sensor %s\n", sensorIdStr);
+			_logger.info(LogComponent::Sensor, F("Found new temperature sensor %s"), sensorIdStr);
 		}
 
 		if (temperature != -127.0f)
@@ -91,10 +90,10 @@ bool TemperatureModule::Tick()
 
 		if (sensors.find(existingNode->name()) == sensors.end())
 		{
-			_device->RemoveNode(existingNode->name());
+			_thing.RemoveNode(existingNode->name());
 			_nodes.erase(_nodes.begin() + i);
 			i--;
-			Serial.printf("Detached temperature sensor %s\n", existingNode->name());
+			_logger.info(LogComponent::Sensor, F("Detached temperature sensor %s"), existingNode->name());
 
 		}
 	}

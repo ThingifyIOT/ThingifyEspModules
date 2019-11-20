@@ -6,21 +6,23 @@
 
 #include <Thingify.h>
 #include <IModule.h>
+#include <Logging/ContiLogger.h>
 
 class TemperatureModule: public IModule
 {
 	OneWire* _oneWire;
-	int _pin;
 	DallasTemperature* _ds1820;
 	uint64_t lastTemperatureCheck;
-	Thingify* _device;
+	Thingify& _thing;
+	int _pin;
 	float _temperature;
+	ContiLogger& _logger;
 	std::vector<Node*> _nodes;
 	Node* FindNodeByName(const char* name);
 public:
 	const char* GetName() override;
 	float GetTemperature(int sensorIndex) const;
-	TemperatureModule(int pin, Thingify* device);
+	TemperatureModule(Thingify& thing, int pin);
 	bool Init() override;
 	bool Tick() override;	
 };
