@@ -49,15 +49,15 @@ bool RadioRemoteModule::OnValueChanged(Node* node)
 	switch (nodeDescriptor.RemoteType)
 	{
 		case RadioRemoteType::OrnoGb405: 
-			ContiLoggerInstance.info(L("Set OrnoGb405 [%d] to %d"), switchNumber, requestedState);
+			LoggerInstance.info(L("Set OrnoGb405 [%d] to %d"), switchNumber, requestedState);
 			_ornoRemote.Set(switchNumber, requestedState);
 			break;
 		case RadioRemoteType::OrnoGb417:
-			ContiLoggerInstance.info(L("Set OrnoGb417 [%d] to %d"), switchNumber, requestedState);
+			LoggerInstance.info(L("Set OrnoGb417 [%d] to %d"), switchNumber, requestedState);
 			_orgnoGb417.Set(switchNumber, requestedState);
 			break;
 		case RadioRemoteType::OrnoSmartLiving:
-			ContiLoggerInstance.info(L("Set OrnoSmarLiving [%d] to %d"), switchNumber, requestedState);
+			LoggerInstance.info(L("Set OrnoSmarLiving [%d] to %d"), switchNumber, requestedState);
 			_ornoSmartLvingRemote.Set(nodeDescriptor.SwitchNumber, requestedState);
 			break;
 	}

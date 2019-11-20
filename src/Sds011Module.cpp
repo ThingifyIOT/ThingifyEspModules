@@ -4,7 +4,7 @@
 
 Sds011Module::Sds011Module(Thingify& thing, HardwareSerial& serial, uint8_t rxPin, uint8_t txPin) :
 	_thing(thing),
-	_logger(ContiLoggerInstance),
+	_logger(LoggerInstance),
 	_serial(serial),
 	_rxPin(rxPin),
 	_txPin(txPin)

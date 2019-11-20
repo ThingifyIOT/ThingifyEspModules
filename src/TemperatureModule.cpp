@@ -5,7 +5,7 @@
 #include <set>
 
 TemperatureModule::TemperatureModule(Thingify& thing, int pin) : 
- _thing(thing), _pin(pin), _logger(ContiLoggerInstance)
+ _thing(thing), _pin(pin), _logger(LoggerInstance)
 {
 }
 bool TemperatureModule::Init()

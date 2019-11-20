@@ -3,7 +3,7 @@
 #include <Value/NodeValue.h>
 
 Hdc1080Module::Hdc1080Module(Thingify &thing, TwoWire &wire, uint8_t i2cAddress) :
-	_logger(ContiLoggerInstance),
+	_logger(LoggerInstance),
 	_i2cAddress(i2cAddress),
 	_thing(thing),	
 	_hdc(wire),

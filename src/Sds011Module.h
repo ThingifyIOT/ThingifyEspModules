@@ -5,7 +5,7 @@
 #include <IModule.h>
 #include "Libraries/Sds011/SDS011.h"
 #include <Wire.h>
-#include <Logging/ContiLogger.h>
+#include <Logging/Logger.h>
 
 
 
@@ -15,7 +15,7 @@ class Sds011Module : public IModule
 	Node* _pm25Node;
 	Node* _pm10Node;
 	SDS011 _sds011;	
-	ContiLogger& _logger;
+	Logger& _logger;
 	HardwareSerial& _serial;
 	uint8_t _rxPin;
 	uint8_t _txPin;

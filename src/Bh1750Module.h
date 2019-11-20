@@ -5,13 +5,13 @@
 #include <IModule.h>
 #include "Libraries/BH1750/ErriezBH1750.h"
 #include <Wire.h>
-#include <Logging/ContiLogger.h>
+#include <Logging/Logger.h>
 
 
 
 class Bh1750Module : public IModule
 {
-	ContiLogger& _logger;
+	Logger& _logger;
 	uint8_t _i2cAddress;
 	BH1750 _bh1750;
 	Thingify& _thing;

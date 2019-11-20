@@ -6,7 +6,7 @@
 #include <IModule.h>
 #include "Libraries/Ccs811/SparkFunCCS811.h"
 #include <Wire.h>
-#include <Logging/ContiLogger.h>
+#include <Logging/Logger.h>
 
 class Ccs811Module : public IModule
 {
@@ -14,7 +14,7 @@ class Ccs811Module : public IModule
 	CCS811 _ccs811;
 	Thingify& _thing;
 	TwoWire& _wire;
-	ContiLogger& _logger;
+	Logger& _logger;
 	Node* _co2PpmNode;
 	Node* _vocPpbNode;
 	bool _isSensorPresent;

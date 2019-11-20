@@ -5,12 +5,12 @@
 #include <IModule.h>
 #include "Libraries/HDC1080/ClosedCube_HDC1080.h"
 #include <Wire.h>
-#include <Logging/ContiLogger.h>
+#include <Logging/Logger.h>
 
 
 class Hdc1080Module : public IModule
 {
-	ContiLogger& _logger;
+	Logger& _logger;
 	uint8_t _i2cAddress;
 	Thingify& _thing;
 	ClosedCube_HDC1080 _hdc;

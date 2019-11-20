@@ -5,12 +5,12 @@
 #include <IModule.h>
 #include "Libraries/BME280/BME280I2C.h"
 #include <Wire.h>
-#include <Logging/ContiLogger.h>
+#include <Logging/Logger.h>
 
 
 class Bme280Module : public IModule
 {	
-	ContiLogger& _logger;
+	Logger& _logger;
 	Thingify& _thing;
 	uint8_t _bmeAddress;
 	BME280I2C::Settings _bmeSettings;

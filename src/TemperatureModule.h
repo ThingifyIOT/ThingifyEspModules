@@ -6,7 +6,7 @@
 
 #include <Thingify.h>
 #include <IModule.h>
-#include <Logging/ContiLogger.h>
+#include <Logging/Logger.h>
 
 class TemperatureModule: public IModule
 {
@@ -16,7 +16,7 @@ class TemperatureModule: public IModule
 	Thingify& _thing;
 	int _pin;
 	float _temperature;
-	ContiLogger& _logger;
+	Logger& _logger;
 	std::vector<Node*> _nodes;
 	Node* FindNodeByName(const char* name);
 public:

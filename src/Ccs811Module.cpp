@@ -7,7 +7,7 @@ Ccs811Module::Ccs811Module(Thingify &thing, TwoWire &wire, uint8_t i2cAddress) :
 	_ccs811(i2cAddress),
 	_thing(thing),
 	_wire(wire),
-	_logger(ContiLoggerInstance),
+	_logger(LoggerInstance),
 	_isSensorPresent(false)
 {
 }

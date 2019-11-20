@@ -3,7 +3,7 @@
 #include <Value/NodeValue.h>
 
 Bme280Module::Bme280Module(Thingify &thing, TwoWire &wire, uint8_t bmeAddress):
-	_logger(ContiLoggerInstance),
+	_logger(LoggerInstance),
 	_thing(thing),
 	_bmeAddress(bmeAddress),
 	_bmeSettings(BME280::OSR_X16, BME280::OSR_X16, BME280::OSR_X16,

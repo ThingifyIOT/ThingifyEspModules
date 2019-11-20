@@ -3,7 +3,7 @@
 #include <Value/NodeValue.h>
 
 Bh1750Module::Bh1750Module(Thingify & thing, TwoWire &wire, uint8_t i2cAddress) :
-	_logger(ContiLoggerInstance),
+	_logger(LoggerInstance),
 	_i2cAddress(i2cAddress),
 	_bh1750(wire, i2cAddress),
 	_thing(thing),
