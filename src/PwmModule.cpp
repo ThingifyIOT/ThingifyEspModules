@@ -61,7 +61,7 @@ bool PwmModule::OnValueChanged(Node *node)
 	}
 	const int outputNumber = result->second;
 
-	if (node->Value.Type == ContiType::Bool)
+	if (node->Value.Type == ValueType::Bool)
 	{
 		const auto boolValue = node->Value.AsBool();
 		const auto pwmValue = boolValue ? 4095 : 0;

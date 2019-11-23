@@ -1,5 +1,5 @@
 #include "Bme280Module.h"
-#include <ContiUtils.h>
+#include <ThingifyUtils.h>
 #include <Value/NodeValue.h>
 
 Bme280Module::Bme280Module(Thingify &thing, TwoWire &wire, uint8_t bmeAddress):

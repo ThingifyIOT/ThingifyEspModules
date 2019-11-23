@@ -1,5 +1,5 @@
 #include "BH1750Module.h"
-#include <ContiUtils.h>
+#include <ThingifyUtils.h>
 #include <Value/NodeValue.h>
 
 Bh1750Module::Bh1750Module(Thingify & thing, TwoWire &wire, uint8_t i2cAddress) :

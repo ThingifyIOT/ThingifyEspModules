@@ -2,7 +2,7 @@
 
 #include <Thingify.h>
 #include <IModule.h>
-#include <ContiUtils.h>
+#include <ThingifyUtils.h>
 
 class DebugNodesModule: public IModule
 {

@@ -1,6 +1,6 @@
 #include "TemperatureModule.h"
 
-#include <ContiUtils.h>
+#include <ThingifyUtils.h>
 #include <map>
 #include <set>
 

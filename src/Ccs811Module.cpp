@@ -1,5 +1,5 @@
 #include "Ccs811Module.h"
-#include <ContiUtils.h>
+#include <ThingifyUtils.h>
 #include <Value/NodeValue.h>
 
 Ccs811Module::Ccs811Module(Thingify &thing, TwoWire &wire, uint8_t i2cAddress) :

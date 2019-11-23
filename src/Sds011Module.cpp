@@ -1,5 +1,5 @@
 #include "Sds011Module.h"
-#include <ContiUtils.h>
+#include <ThingifyUtils.h>
 #include <Value/NodeValue.h>
 
 Sds011Module::Sds011Module(Thingify& thing, HardwareSerial& serial, uint8_t rxPin, uint8_t txPin) :

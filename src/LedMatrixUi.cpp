@@ -1,5 +1,5 @@
 #include "LedMatrixUi.h"
-#include <ContiUtils.h>
+#include <ThingifyUtils.h>
 
 LedMatrixUi::LedMatrixUi(Thingify& thing, uint8_t txPin): 
 	_thing(thing), 

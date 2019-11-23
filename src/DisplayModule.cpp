@@ -54,18 +54,18 @@ void DisplayModule::DisplayInfo()
 {
 	display.clear();
 	display.setFont(ArialMT_Plain_16);
-	display.drawString(1,2, ContiUtils::ThingStateToShortStr(_thing.GetCurrentState()));
+	display.drawString(1,2, ThingifyUtils::ThingStateToShortStr(_thing.GetCurrentState()));
 
 	if (_thing.GetCurrentState() == ThingState::Online)
 	{
 		display.setFont(ArialMT_Plain_10);
 		FixedString<100> onlineTimeStr;
-		auto connectedString = ContiUtils::TimeToShortStr(_thing.GetMillisecondsSinceConnect() / 1000);
+		auto connectedString = ThingifyUtils::TimeToShortStr(_thing.GetMillisecondsSinceConnect() / 1000);
 		onlineTimeStr.append("for ");
 		onlineTimeStr += connectedString;
 
 		FixedString<100> uptimeStr = "up ";
-		auto uptime = ContiUtils::TimeToShortStr(millis() / 1000);
+		auto uptime = ThingifyUtils::TimeToShortStr(millis() / 1000);
 		uptimeStr += uptime;
 
 

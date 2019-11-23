@@ -1,5 +1,5 @@
 #include "Hdc1080Module.h"
-#include <ContiUtils.h>
+#include <ThingifyUtils.h>
 #include <Value/NodeValue.h>
 
 Hdc1080Module::Hdc1080Module(Thingify &thing, TwoWire &wire, uint8_t i2cAddress) :
