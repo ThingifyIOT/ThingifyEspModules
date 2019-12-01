@@ -64,7 +64,7 @@ public:
 		_thing.AddColor("strip.color")->OnChanged(this, ValueChangedHandler)
 			->SetValue(NodeValue::Color(0,0,0,0));
 
-		//_thing.AddRange("strip.speed", 0, 30, 1, ContiUnit::Percent)->
+		//_thing.AddRange("strip.speed", 0, 30, 1, ThingifyUnit::Percent)->
 		//	OnChanged(this, ValueChangedHandler)->
 		//	SetValue(NodeValue::Int(10));
 
