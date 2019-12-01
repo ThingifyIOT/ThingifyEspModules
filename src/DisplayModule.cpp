@@ -1,13 +1,13 @@
 #include "DisplayModule.h"
 #include <Wire.h>
 
-DisplayModule::DisplayModule(Thingify &thing, int ssd1306Address, int sdaPin, int sclPin, bool isInverted) :
+DisplayModule::DisplayModule(Thingify &thing, int ssd1306Address, int sdaPin, int sclPin, bool isInverted, int displayUpdateInterval) :
 display(ssd1306Address, sdaPin, sclPin),
 _scl_pin(sclPin),
 _sda_pin(sdaPin),
 _thing(thing),
 _ssd1306_address(ssd1306Address),
-_display_timer(1000),
+_displayTimer(displayUpdateInterval),
 _isInverted(isInverted)
 {
 	_thing.OnStateChanged = bind(&DisplayModule::OnStateChanged, this, std::placeholders::_1);
@@ -15,7 +15,7 @@ _isInverted(isInverted)
 
 void DisplayModule::OnStateChanged(ThingState state)
 {
-	_display_timer.SetElapsed();
+	_displayTimer.SetElapsed();
 }
 bool DisplayModule::Init()
 {	
@@ -42,7 +42,7 @@ void DisplayModule::Display()
 }
 bool DisplayModule::Tick()
 {
-	if (!_display_timer.IsElapsed())
+	if (!_displayTimer.IsElapsed())
 	{
 		return true;
 	}
@@ -96,7 +96,10 @@ void DisplayModule::DisplayInfo()
 		display.setFont(ArialMT_Plain_10);
 		display.drawString(10, 64 - 28, "Upgrading firmware...");
 	}
-
+	if(BeforeDisplay)
+	{
+		BeforeDisplay(display);
+	}
 	Display();
 }
 
