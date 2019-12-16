@@ -59,12 +59,12 @@ void DisplayModule::DisplayInfo()
 	if (_thing.GetCurrentState() == ThingState::Online)
 	{
 		display.setFont(ArialMT_Plain_10);
-		FixedString<100> onlineTimeStr;
+		FixedString128 onlineTimeStr;
 		auto connectedString = ThingifyUtils::TimeToShortStr(_thing.GetMillisecondsSinceConnect() / 1000);
 		onlineTimeStr.append("for ");
 		onlineTimeStr += connectedString;
 
-		FixedString<100> uptimeStr = "up ";
+		FixedString128 uptimeStr = "up ";
 		auto uptime = ThingifyUtils::TimeToShortStr(millis() / 1000);
 		uptimeStr += uptime;
 
@@ -73,7 +73,7 @@ void DisplayModule::DisplayInfo()
 		display.drawString(62, 10, uptimeStr.c_str());
 
 
-		FixedString<50> packetCountStr;
+		FixedString64 packetCountStr;
 		packetCountStr.appendFormat("In/Out pkts: %d/%d", _thing.GetIncomingPackets(), _thing.GetOutgoingPackets());
 		display.drawString(1, 25, packetCountStr.c_str());
 

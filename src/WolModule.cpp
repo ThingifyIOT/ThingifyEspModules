@@ -83,7 +83,7 @@ NodeValue WolModule::OnFunctionExecuted(void* context, FunctionArguments& args)
 		_udp.write(mac, sizeof mac);
 	}
 	_udp.endPacket();
-	FixedString<50> str;
+	FixedString64 str;
 	str.appendFormat("Wol sent to %s", _macAddress);
 	return NodeValue::String(str.c_str());
 }
