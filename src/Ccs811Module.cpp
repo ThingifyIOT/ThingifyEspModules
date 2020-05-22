@@ -32,7 +32,7 @@ bool Ccs811Module::ApplyCompensation()
 	Node *humidNode = _thing.FindNode("hdc1080.humidity");
 	Node *temperatureNode = _thing.FindNode("hdc1080.temperature");
 
-	if (humidNode == nullptr || temperatureNode == nullptr)
+	if (humidNode->isNull() || temperatureNode->isNull())
 	{
 		return false;
 	}
