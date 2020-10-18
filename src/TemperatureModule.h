@@ -1,8 +1,8 @@
 #pragma once
 
 #include <Arduino.h>
-#include "Libraries/DallasTemperature/DallasTemperature.h"
 #include "Libraries/OneWire/OneWire.h"
+#include "Libraries/DS1820/DS18B20.h"
 
 #include <Thingify.h>
 #include <IModule.h>
@@ -11,7 +11,7 @@
 class TemperatureModule: public IModule
 {
 	OneWire* _oneWire;
-	DallasTemperature* _ds1820;
+	DS18B20* _ds1820;
 	uint64_t lastTemperatureCheck;
 	Thingify& _thing;
 	int _pin;

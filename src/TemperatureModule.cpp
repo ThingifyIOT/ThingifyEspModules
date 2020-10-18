@@ -10,10 +10,7 @@ TemperatureModule::TemperatureModule(Thingify& thing, int pin) :
 }
 bool TemperatureModule::Init()
 {
-	_oneWire = new OneWire(_pin);
-	_ds1820 = new DallasTemperature(_oneWire);
-	_ds1820->begin();
-	_ds1820->setWaitForConversion(false);
+	_ds1820 = new DS18B20(_pin);
 	return true;
 }
 
@@ -45,20 +42,21 @@ bool TemperatureModule::Tick()
 	{
 		return true;
 	}
-	_ds1820->requestTemperatures();
 
 	std::set<std::string> sensors;
 
-	for (int i = 0; i < _ds1820->getDeviceCount(); i++)
+	int sensorCount = 0;
+	while (_ds1820->selectNext())
 	{
-
+		sensorCount++;
 		uint8_t sensorId[8];
-		_ds1820->getAddress(sensorId, i);
+		_ds1820->getAddress(sensorId);
 
 		char sensorIdStr[100];
 		sprintf(sensorIdStr, "temp_%02X%02X%02X", sensorId[0], sensorId[1], sensorId[2]);
+		_logger.info(LogComponent::Sensor, F("sensor %s"), sensorIdStr);
 
-		float temperature = _ds1820->getTempC(sensorId);
+		float temperature = _ds1820->getTempC();
 
 		float b = temperature * 10.0f;
 		temperature = static_cast<int>(b) / 10.0f;
@@ -78,7 +76,8 @@ bool TemperatureModule::Tick()
 			existingNode->SetValue(NodeValue::Float(temperature));
 		}
 	}
-	
+	_logger.info(LogComponent::Sensor, F("DS18x20 count: %d"), sensorCount);
+
 	static SoftTimer soft_timer_deletion(10000);
 	if (!soft_timer_deletion.IsElapsed())
 	{
