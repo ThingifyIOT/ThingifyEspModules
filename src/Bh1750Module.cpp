@@ -56,7 +56,7 @@ bool Bh1750Module::Tick()
 
 	if (_bh1750.read(lux))
 	{
-		_lightNode->SetValue(lux);
+		_lightNode->Set(lux);
 		return true;
 	}
 	
