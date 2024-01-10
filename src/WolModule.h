@@ -12,8 +12,9 @@ class WolModule : public IModule
 	const char* _macAddress;
 	bool ParseMacAddress(const char*macAddress, byte mac[6]);
 	NodeValue OnFunctionExecuted(void* context, FunctionArguments& args) override;
+	char _nodeName[50];
 public:
-	WolModule(Thingify &device, const char* macAddress);
+	WolModule(Thingify &device, const char* computerName, const char* macAddress);
 	const char* GetName() override;
 	bool Init() override;
 	bool Tick() override;

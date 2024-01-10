@@ -1,9 +1,12 @@
 #include "WolModule.h"
 #include <FixedString.h>
 
-WolModule::WolModule(Thingify &device, const char* macAddress)
+WolModule::WolModule(Thingify &device, const char*name, const char* macAddress)
 	:_device(device), _macAddress(macAddress)
 {
+	_nodeName[0] = 0;
+	strcat(_nodeName, "Wake ");
+	strcat(_nodeName, name);
 }
 
 const char* WolModule::GetName()
@@ -13,7 +16,7 @@ const char* WolModule::GetName()
 
 bool WolModule::Init()
 {
-	_device.AddFunction("Wake Laptop", FunctionExecutionHandler, this);
+	_device.AddFunction(_nodeName, FunctionExecutionHandler, this);
 	return true;
 }
 
